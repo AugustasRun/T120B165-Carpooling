@@ -53,3 +53,5 @@ Sistemos sudedamosios dalys:
 • Serverio pusė (angl. Back-End) – naudojant C# .NET. Duomenų bazė – MySQL.
 
 Serverio diegimo diagrama. Sistemai talpinti bus naudojama Azure teikiamos paslaugos. Viskas bus talpinama viename serveryje. Kiekviena programaminio kodo dalis komunikuos naudojant HTTP protokolą. API programinės įrangos dalis bus jungiama su duomenų baze naudoajant ORM sąsają.
+![architecture](https://user-images.githubusercontent.com/53519808/192145440-6a71e559-dd77-4cda-bf08-206a7a81d62b.png)
+
