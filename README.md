@@ -20,8 +20,11 @@ Dispečiarinė galės:
 
 1. Atsijungti nuo internetinės aplikacijos
 2. Valdyti vairuotojo profilį
+
     2.1 Pridėti naują vairuotoją
+
     2.2 Išmesti vairuotoją
+
     2.3 Peržiūrėti vairtuotoją
     2.4 Redaguoti vairuotojo profilį
 3. Valdyti maršrutus
