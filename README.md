@@ -20,31 +20,31 @@ Dispečiarinė galės:
 
 1. Atsijungti nuo internetinės aplikacijos
 2. Valdyti vairuotojo profilį
-2.1 Pridėti naują vairuotoją
-2.2 Išmesti vairuotoją
-2.3 Peržiūrėti vairtuotoją
-2.4 Redaguoti vairuotojo profilį
+    2.1 Pridėti naują vairuotoją
+    2.2 Išmesti vairuotoją
+    2.3 Peržiūrėti vairtuotoją
+    2.4 Redaguoti vairuotojo profilį
 3. Valdyti maršrutus
-3.1 Pridėti maršrutą
-3.2 Atnaujint maršrutą
-3.3 Ištrinti maršrutą
-3.4 Peržiūrėti maršrutą
+    3.1 Pridėti maršrutą
+    3.2 Atnaujint maršrutą
+    3.3 Ištrinti maršrutą
+    3.4 Peržiūrėti maršrutą
 
 Vairuotojas galės:
 
 1. Valdyti maršrutą
-1.1 Pridėti maršrutą
-1.2 Redaguoti maršrutą
-1.3 Ištrinti maršrutą
-1.4 Peržiūrti maršrutą
+    1.1 Pridėti maršrutą
+    1.2 Redaguoti maršrutą
+    1.3 Ištrinti maršrutą
+    1.4 Peržiūrti maršrutą
 
 Administratorius galės:
 
 1. Valdyti dispečiarinė
-1.1 Pridėti dispečiarinė
-1.2 Atnaujint dispečiarinė
-1.3 Ištrinti dispečiarinė
-1.4 Peržiūrėti dispečiarinė
+    1.1 Pridėti dispečiarinė
+    1.2 Atnaujint dispečiarinė
+    1.3 Ištrinti dispečiarinė
+    1.4 Peržiūrėti dispečiarinė
 
 ## 2. Sistemos architektūra
 
