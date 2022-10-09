@@ -26,11 +26,16 @@ Dispečiarinė galės:
     2.2 Išmesti vairuotoją
 
     2.3 Peržiūrėti vairtuotoją
+
     2.4 Redaguoti vairuotojo profilį
 3. Valdyti maršrutus
+
     3.1 Pridėti maršrutą
+
     3.2 Atnaujint maršrutą
+
     3.3 Ištrinti maršrutą
+
     3.4 Peržiūrėti maršrutą
 
 Vairuotojas galės:
