@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace T120B165_TaxiDispatcher.Models
 {
@@ -12,7 +10,6 @@ namespace T120B165_TaxiDispatcher.Models
             Drivers = new HashSet<Driver>();
         }
 
-        [Key]
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string City { get; set; } = null!;
