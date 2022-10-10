@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
+using T120B165_TaxiDispatcher.Dtos;
 using T120B165_TaxiDispatcher.Models;
 using T120B165_TaxiDispatcher.Repository;
 
@@ -12,6 +14,7 @@ namespace T120B165_TaxiDispatcher
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
             builder.Services.AddControllers();
 

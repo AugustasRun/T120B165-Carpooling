@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using T120B165_TaxiDispatcher.Dtos;
 using T120B165_TaxiDispatcher.Models;
 using T120B165_TaxiDispatcher.Repository;
 
@@ -30,16 +31,23 @@ namespace T120B165_TaxiDispatcher.Controllers
 
         // GET: api/Drivers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Driver>> GetDriver(int id)
+        public async Task<ActionResult<DriverRoutes>> GetDriver(int id)
         {
             var driver = await _context.Drivers.FindAsync(id);
-
+            
             if (driver == null)
             {
                 return NotFound();
             }
-
-            return driver;
+            var driverRoutes = new DriverRoutes();
+            driverRoutes.FirstName = driver.FirstName;
+            driverRoutes.LastName = driver.LastName;
+            driverRoutes.StartedDriving = driver.StartedDriving;
+            driverRoutes.StartedWorking = driver.StartedWorking;
+            driverRoutes.Id = driver.Id;
+            driverRoutes.WorkingForId = driver.WorkingForId;
+            driverRoutes.Routes = _context.Routes.Where(r => r.DriverId==driverRoutes.Id).ToList();
+            return driverRoutes;
         }
 
         // PUT: api/Drivers/5
