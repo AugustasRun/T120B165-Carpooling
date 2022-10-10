@@ -11,7 +11,5 @@ namespace T120B165_TaxiDispatcher.Models
         public DateTime Time { get; set; }
         public double Price { get; set; }
         public int DriverId { get; set; }
-
-        public virtual Driver Driver { get; set; } = null!;
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using T120B165_TaxiDispatcher.Models;
+using T120B165_TaxiDispatcher.Repository;
 
 namespace T120B165_TaxiDispatcher
 {
@@ -14,7 +15,7 @@ namespace T120B165_TaxiDispatcher
 
             builder.Services.AddControllers();
 
-            builder.Services.AddDbContext<TaxiDispatcherContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
+            builder.Services.AddDbContext<TaxiDispatcherDbContext>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
