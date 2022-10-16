@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +17,12 @@ namespace T120B165_TaxiDispatcher.Controllers
     public class DriversController : ControllerBase
     {
         private readonly TaxiDispatcherDbContext _context;
+        private readonly IMapper _mapper;
 
-        public DriversController(TaxiDispatcherDbContext context)
+        public DriversController(TaxiDispatcherDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Drivers
@@ -31,36 +34,38 @@ namespace T120B165_TaxiDispatcher.Controllers
 
         // GET: api/Drivers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<DriverRoutes>> GetDriver(int id)
+        public async Task<ActionResult<Driver>> GetDriver(int id)
         {
             var driver = await _context.Drivers.FindAsync(id);
-            
+
             if (driver == null)
             {
                 return NotFound();
             }
-            var driverRoutes = new DriverRoutes();
-            driverRoutes.FirstName = driver.FirstName;
-            driverRoutes.LastName = driver.LastName;
-            driverRoutes.StartedDriving = driver.StartedDriving;
-            driverRoutes.StartedWorking = driver.StartedWorking;
-            driverRoutes.Id = driver.Id;
-            driverRoutes.WorkingForId = driver.WorkingForId;
-            driverRoutes.Routes = _context.Routes.Where(r => r.DriverId==driverRoutes.Id).ToList();
-            return driverRoutes;
+
+            return driver;
         }
 
         // PUT: api/Drivers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDriver(int id, Driver driver)
+        public async Task<IActionResult> PutDriver(int id, DriverDto driver)
         {
             if (id != driver.Id)
             {
                 return BadRequest();
             }
-
-            _context.Entry(driver).State = EntityState.Modified;
+            var driverEntity = await _context.Drivers.FindAsync(id);
+            if (driverEntity == null)
+            {
+                return NotFound();
+            }
+            var temp = new DriverDto();
+            temp = _mapper.Map(driverEntity, temp);
+            temp = _mapper.Map(driver, temp);
+            driverEntity = _mapper.Map(temp, driverEntity);
+            //driverEntity = _mapper.Map(driver, driverEntity);
+            _context.Entry(driverEntity).State = EntityState.Modified;
 
             try
             {
@@ -106,6 +111,20 @@ namespace T120B165_TaxiDispatcher.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        [HttpGet("{id}/routes")]
+        public async Task<ActionResult<DriverRoutes>> GetDriversRoutes(int id)
+        {
+            var driver = await _context.Drivers.FindAsync(id);
+
+            if (driver == null)
+            {
+                return NotFound();
+            }
+            var driverRoutes = _mapper.Map<DriverRoutes>(driver);
+            driverRoutes.Routes = _context.Routes.Where(r => r.DriverId == driverRoutes.Id).ToList();
+            return driverRoutes;
         }
 
         private bool DriverExists(int id)

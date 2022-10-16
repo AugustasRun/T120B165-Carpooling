@@ -11,5 +11,6 @@ namespace T120B165_TaxiDispatcher.Models
         public DateTime StartedDriving { get; set; }
         public DateTime StartedWorking { get; set; }
         public int WorkingForId { get; set; }
+
     }
 }
