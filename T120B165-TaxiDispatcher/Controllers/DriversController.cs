@@ -64,7 +64,6 @@ namespace T120B165_TaxiDispatcher.Controllers
             temp = _mapper.Map(driverEntity, temp);
             temp = _mapper.Map(driver, temp);
             driverEntity = _mapper.Map(temp, driverEntity);
-            //driverEntity = _mapper.Map(driver, driverEntity);
             _context.Entry(driverEntity).State = EntityState.Modified;
 
             try
