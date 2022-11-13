@@ -119,7 +119,7 @@ namespace T120B165_TaxiDispatcher.Controllers
 
             if (driver == null)
             {
-                return NotFound();
+                return Ok();
             }
             var driverRoutes = _mapper.Map<DriverRoutes>(driver);
             driverRoutes.Routes = _context.Routes.Where(r => r.DriverId == driverRoutes.Id).ToList();
