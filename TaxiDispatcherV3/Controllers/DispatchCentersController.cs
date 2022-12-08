@@ -55,14 +55,12 @@ namespace TaxiDispatcherV3.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = ClinicRoles.User)]
-        public async Task<IActionResult> PutDispatchCenter(int id, DispatchCenter dispatchCenter)
+        public async Task<IActionResult> PutDispatchCenter(int id, DispatchCenterDto dispatchCenter)
         {
-            if (id != dispatchCenter.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(dispatchCenter).State = EntityState.Modified;
+            var temp = await _context.DispatchCenter.FindAsync(id);
+            temp.City = dispatchCenter.city;
+            temp.Name = dispatchCenter.name;
+            _context.Entry(temp).State = EntityState.Modified;
 
             try
             {
