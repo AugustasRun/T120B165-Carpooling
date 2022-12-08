@@ -22,7 +22,7 @@ var connString = builder.Configuration["ConnectionStrings.TaxiDispatcherV3Contex
 builder.Services.AddIdentity<ClinicUser, IdentityRole>()
     .AddEntityFrameworkStores<TaxiDispatcherV3Context>()
     .AddDefaultTokenProviders();
-builder.Services.AddDbContext<TaxiDispatcherV3Context>(option => option.UseSqlServer("Data Source=tcp:taxidispatcchers.database.windows.net,1433;Initial Catalog=TaxiDispatch;User Id=Karve123;Password=KakisMakis321"));
+builder.Services.AddDbContext<TaxiDispatcherV3Context>(option => option.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=TaxiDispatcher;Trusted_Connection=True;"));
 
 builder.Services.AddAuthentication(options =>
 {
@@ -48,7 +48,10 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy(PolicyNames.ResourceOwner, policy => policy.Requirements.Add(new ResourceOwnerRequirement()));
 });
-
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 var app = builder.Build();
 using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>()
     .CreateScope())
@@ -57,7 +60,7 @@ using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>(
 
     dbContext.Database.EnsureCreated();
 }
-
+app.UseCors("corsapp");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
