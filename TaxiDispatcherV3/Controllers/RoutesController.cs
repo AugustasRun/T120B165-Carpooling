@@ -56,14 +56,15 @@ namespace TaxiDispatcherV3.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = ClinicRoles.User)]
-        public async Task<IActionResult> PutRoute(int id, Route route)
+        public async Task<IActionResult> PutRoute(int id, RouteDto route)
         {
-            if (id != route.Id)
-            {
-                return BadRequest();
-            }
+            var temp = await _context.Route.FindAsync(id);
+            temp.From = route.From;
+            temp.To = route.To;
+            temp.Time = route.Time;
+            temp.Price = route.Price;
 
-            _context.Entry(route).State = EntityState.Modified;
+            _context.Entry(temp).State = EntityState.Modified;
 
             try
             {

@@ -55,14 +55,14 @@ namespace TaxiDispatcherV3.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = ClinicRoles.User)]
-        public async Task<IActionResult> PutDriver(int id, Driver driver)
+        public async Task<IActionResult> PutDriver(int id, DriverDto driver)
         {
-            if (id != driver.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(driver).State = EntityState.Modified;
+            var temp = await _context.Driver.FindAsync(id);
+            temp.FirstName = driver.firstName;
+            temp.LastName = driver.lastName;
+            temp.StartedDriving = driver.startedDriving;
+            temp.StartedWorking = driver.startedWorking;
+            _context.Entry(temp).State = EntityState.Modified;
 
             try
             {
