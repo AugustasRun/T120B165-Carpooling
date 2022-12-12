@@ -2,8 +2,8 @@ import axios from "axios";
 
 const API_URL = "https://localhost:7004/api";
 
-class animalService {
-  getAnimals() {
+class dispatchService {
+  getDispatchCenters() {
     var config = {
       method: "get",
       url: API_URL + "/DispatchCenters",
@@ -19,10 +19,10 @@ class animalService {
         console.log(error);
       });
   }
-  getAnimal(animalId) {
+  getDispatchCenter(dispatchCenterId) {
     var config = {
       method: "get",
-      url: API_URL + "/DispatchCenters/" + animalId,
+      url: API_URL + "/DispatchCenters/" + dispatchCenterId,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -36,7 +36,7 @@ class animalService {
         console.log(error);
       });
   }
-  updateAnimal(name,city,animalId) {
+  updateDispatchCenter(name,city,dispatchCenterId) {
     var user = JSON.parse(localStorage.getItem("user"));
     let userName =
       user["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
@@ -46,7 +46,7 @@ class animalService {
     });
     var config = {
       method: "put",
-      url: API_URL + "/DispatchCenters/" + animalId,
+      url: API_URL + "/DispatchCenters/" + dispatchCenterId,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
         "Content-Type": "application/json",
@@ -61,7 +61,7 @@ class animalService {
         return error;
       });
   }
-  createAnimal(name, city) {
+  createDispatchCenter(name, city) {
     var user = JSON.parse(localStorage.getItem("user"));
     let userName =
       user["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
@@ -86,10 +86,10 @@ class animalService {
         return error;
       });
   }
-  deleteAnimal(animalId) {
+  deleteDispatchCenter(dispatchCenterId) {
     var config = {
       method: "delete",
-      url: API_URL + "/DispatchCenters/" + animalId,
+      url: API_URL + "/DispatchCenters/" + dispatchCenterId,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -104,4 +104,4 @@ class animalService {
   }
 }
 
-export default new animalService();
+export default new dispatchService();

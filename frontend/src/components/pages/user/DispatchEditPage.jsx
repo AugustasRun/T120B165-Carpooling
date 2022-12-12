@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/animalServices";
+import dispatchService from "../../services/dispatchServices";
 import { useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -12,12 +12,12 @@ export default function DispatchEditPage() {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   useEffect(() => {
-    getAnimal();
+    getDispatchCenter();
   }, []);
-  async function getAnimal() {
-    var animal = await animalService.getAnimal(location.state.animalId);
-    setName(animal.name);
-    setCity(animal.city);
+  async function getDispatchCenter() {
+    var dispatchCenter = await dispatchService.getDispatchCenter(location.state.dispatchCenterId);
+    setName(dispatchCenter.name);
+    setCity(dispatchCenter.city);
   }
   const handleNavigate = () => {
     navigate("/user/dispatchCenters");
@@ -26,8 +26,8 @@ export default function DispatchEditPage() {
     event.preventDefault();
     
       if (name.length >= 3 && city.length >= 3) {
-        animalService
-          .updateAnimal(name, city, location.state.animalId)
+        dispatchService
+          .updateDispatchCenter(name, city, location.state.dispatchCenterId)
           .then((response) => {
             setError("");
             navigate("/user/dispatchCenters");
@@ -50,7 +50,7 @@ export default function DispatchEditPage() {
             >
               Back
             </Button>
-            <h2>Edit animal</h2>
+            <h2>Edit Dispatch Center</h2>
           </div>
           <div className="pages-container-info-form">
             <Form>

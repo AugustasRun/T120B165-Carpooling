@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/animalServices";
+import dispatchService from "../../services/dispatchServices";
 import { useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -18,7 +18,7 @@ export default function DispatchCreatePage() {
     event.preventDefault();
     
       if (name.length >= 3 && city.length >= 3) {
-        animalService.createAnimal(name, city).then((response) => {
+        dispatchService.createDispatchCenter(name, city).then((response) => {
           setError("");
           navigate("/user/dispatchCenters");
         });

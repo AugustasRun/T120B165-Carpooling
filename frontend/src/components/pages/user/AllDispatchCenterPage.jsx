@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/animalServices";
+import dispatchService from "../../services/dispatchServices";
 import { useNavigate } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 
 export default function AllDispatchCenterPage() {
-  const [animals, setAnimals] = useState([]);
+  const [dispatchCenters, setDispatchCenters] = useState([]);
   const [user, setUser] = useState();
   const [update, setUpdate] = useState();
   const navigate = useNavigate();
   useEffect(() => {
-    getAnimals();
+    getDispatchCenters();
     return () => {
-      getAnimals();
+      getDispatchCenters();
       setUpdate(false);
     };
   }, [update]);
-  async function getAnimals() {
-    var animals = await animalService.getAnimals();
+  async function getDispatchCenters() {
+    var dispatchCenters = await dispatchService.getDispatchCenters();
     const localUser = JSON.parse(localStorage.getItem("user"));
     setUser(localUser);
     
-    setAnimals(animals);
+    setDispatchCenters(dispatchCenters);
   }
   const handleEdit = async (event) => {
     event.preventDefault();
     navigate("edit", {
-      state: { animalId: event.target.value },
+      state: { dispatchCenterId: event.target.value },
     });
   };
   const handleCreate = async (event) => {
@@ -50,7 +50,7 @@ export default function AllDispatchCenterPage() {
   };
   const handleDelete = async (event) => {
     event.preventDefault();
-    await animalService.deleteAnimal(event.target.value);
+    await dispatchService.deleteDispatchCenter(event.target.value);
     setUpdate(true);
   };
   return (
@@ -64,42 +64,42 @@ export default function AllDispatchCenterPage() {
               Register new Dispatch center
             </button>
           </div>
-          {animals.length !== 0 ? (
+          {dispatchCenters.length !== 0 ? (
             <ul className="responsive-table">
               <li className="table-header">
                 <div className="col col-1">Dispatch Center Name</div>
                 <div className="col col-2">City</div>
                 <div className="col col-5">Options</div>
               </li>
-              {animals.map((animal) => {
+              {dispatchCenters.map((dispatchCenter) => {
                 return (
-                  <li className="table-row" key={animal.id}>
+                  <li className="table-row" key={dispatchCenter.id}>
                     <div
                       className="col col-1"
                       data-label="Name"
-                      data-key={animal.name}
+                      data-key={dispatchCenter.name}
                     >
-                      {animal.name}
+                      {dispatchCenter.name}
                     </div>
                     <div
                       className="col col-2"
                       data-label="City"
-                      data-key={animal.city}
+                      data-key={dispatchCenter.city}
                     >
-                      {animal.city}
+                      {dispatchCenter.city}
                     </div>
                     <div className="col col-5" data-label="Options">
                       <button
                         className="button-edit"
                         onClick={handleEdit}
-                        value={animal.id}
+                        value={dispatchCenter.id}
                       >
                         {" "}
                         Edit
                       </button>
                       <button
                         className="button-delete"
-                        value={animal.id}
+                        value={dispatchCenter.id}
                         onClick={confirmWindow}
                       >
                         {" "}
