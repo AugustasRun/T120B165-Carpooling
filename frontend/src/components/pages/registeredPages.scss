@@ -1,9 +1,10 @@
 .pages-container {
   display: flex;
   align-items: center;
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
-  background: white;
+  background: rgb(209, 209, 209);
+  padding: 50px;
 }
 .pages-container-info {
   align-items: center;
@@ -22,7 +23,7 @@
 }
 .pages-container-info-form {
   line-height: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   margin-left: 30%;
   margin-right: 30%;
   background: rgb(242, 240, 240);
@@ -47,13 +48,14 @@ h2 {
     margin-bottom: 25px;
   }
   .table-header {
-    background-color: #95a5a6;
+    background-color: #000000;
     font-size: 14px;
     text-transform: uppercase;
+    color: #eee;
     letter-spacing: 0.03em;
   }
   .table-row {
-    background-color: #ffffff;
+    background-color:  rgb(209, 209, 209);
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
   }
   .col-1 {

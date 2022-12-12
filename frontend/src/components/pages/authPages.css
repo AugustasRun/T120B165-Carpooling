@@ -2,9 +2,10 @@
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  padding-bottom: 200px;
+  padding-bottom: 400px;
   padding-top: 100px;
   background: url("/src/images/homebackground.jpg");
+  background-size: cover;
 }
 .form {
   display: flex;
