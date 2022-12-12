@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://localhost:7004/api";
+const API_URL = "https://taxidispatcherv320221212151155.azurewebsites.net/api";
 
 class routesService {
   getRoutes() {

@@ -7,7 +7,7 @@
   margin-top: 15px;
 }
 .modal-button:hover {
-  background: white;
+  background: rgb(78, 77, 77);
   color: #242424;
   transition: all 0.3s ease-out;
 }
