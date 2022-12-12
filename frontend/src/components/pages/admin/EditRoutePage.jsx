@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/routesService";
+import routesServices from "../../services/routesService";
 import { useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -14,14 +14,14 @@ export default function EditDriverPage() {
   const [time, setTime] = useState("");
   const [price, setPrice] = useState("");
   useEffect(() => {
-    getAnimal();
+    getRoute();
   }, []);
-  async function getAnimal() {
-    var animal = await animalService.getDriver(location.state.animalId);
-    setFrom(animal.from);
-    setTo(animal.to);
-    setTime(animal.time);
-    setPrice(animal.price);
+  async function getRoute() {
+    var route = await routesServices.getRoute(location.state.routeId);
+    setFrom(route.from);
+    setTo(route.to);
+    setTime(route.time);
+    setPrice(route.price);
   }
   const handleNavigate = () => {
     navigate("/admin/routes");
@@ -30,8 +30,8 @@ export default function EditDriverPage() {
     event.preventDefault();
     
       if (from.length >= 3 && to.length >= 3) {
-        animalService
-          .updateAnimal(from, to,time,price,location.state.animalId)
+        routesServices
+          .updateRoute(from, to,time,price,location.state.routeId)
           .then((response) => {
             setError("");
             navigate("/admin/routes");
@@ -54,7 +54,7 @@ export default function EditDriverPage() {
             >
               Back
             </Button>
-            <h2>Edit animal</h2>
+            <h2>Edit route</h2>
           </div>
           <div className="pages-container-info-form">
           <Form>

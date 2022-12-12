@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/routesService";
+import routesServices from "../../services/routesService";
 import { useNavigate } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 
 export default function RegisteredDispatchCenterPage() {
-  const [animals, setAnimals] = useState([]);
+  const [routes, setRoutes] = useState([]);
   const [user, setUser] = useState();
   const [update, setUpdate] = useState();
   const navigate = useNavigate();
   useEffect(() => {
-    getAnimals();
+    getRoutes();
     return () => {
-      getAnimals();
+      getRoutes();
       setUpdate(false);
     };
   }, [update]);
-  async function getAnimals() {
-    var animals = await animalService.getDrivers();
+  async function getRoutes() {
+    var routes = await routesServices.getRoutes();
     const localUser = JSON.parse(localStorage.getItem("user"));
     setUser(localUser);
     
-    setAnimals(animals);
+    setRoutes(routes);
   }
   const handleEdit = async (event) => {
     event.preventDefault();
     navigate("edit", {
-      state: { animalId: event.target.value },
+      state: { routeId: event.target.value },
     });
   };
   const handleCreate = async (event) => {
@@ -50,14 +50,8 @@ export default function RegisteredDispatchCenterPage() {
   };
   const handleDelete = async (event) => {
     event.preventDefault();
-    await animalService.deleteAnimal(event.target.value);
+    await routesServices.deleteRoute(event.target.value);
     setUpdate(true);
-  };
-  const handleVisits = async (event) => {
-    event.preventDefault();
-    navigate("visits", {
-      state: { animalId: event.target.value },
-    });
   };
 
   return (
@@ -65,13 +59,13 @@ export default function RegisteredDispatchCenterPage() {
       <div className="pages-container">
         <div className="pages-container-info">
           <div className="pages-container-info-header">
-            <h2>Here you can find all registered Drivers</h2>
+            <h2>Here you can find all registered route</h2>
             <button className="button-new" onClick={handleCreate}>
               {" "}
-              Register new Driver
+              Register new route
             </button>
           </div>
-          {animals.length !== 0 ? (
+          {routes.length !== 0 ? (
             <ul className="responsive-table">
               <li className="table-header">
                 <div className="col col-1">From</div>
@@ -80,49 +74,49 @@ export default function RegisteredDispatchCenterPage() {
                 <div className="col col-4">Price</div>
                 <div className="col col-5">Options</div>
               </li>
-              {animals.map((animal) => {
+              {routes.map((route) => {
                 return (
-                  <li className="table-row" key={animal.id}>
+                  <li className="table-row" key={route.id}>
                     <div
                       className="col col-1"
                       data-label="From"
-                      data-key={animal.from}
+                      data-key={route.from}
                     >
-                      {animal.from}
+                      {route.from}
                     </div>
                     <div
                       className="col col-2"
                       data-label="C"
-                      data-key={animal.to}
+                      data-key={route.to}
                     >
-                      {animal.to}
+                      {route.to}
                     </div>
                     <div
                       className="col col-3"
                       data-label="C"
-                      data-key={animal.time}
+                      data-key={route.time}
                     >
-                      {animal.time}
+                      {route.time}
                     </div>
                     <div
                       className="col col-4"
                       data-label="C"
-                      data-key={animal.price}
+                      data-key={route.price}
                     >
-                      {animal.price}
+                      {route.price}
                     </div>
                     <div className="col col-5" data-label="Options">
                       <button
                         className="button-edit"
                         onClick={handleEdit}
-                        value={animal.id}
+                        value={route.id}
                       >
                         {" "}
                         Edit
                       </button>
                       <button
                         className="button-delete"
-                        value={animal.id}
+                        value={route.id}
                         onClick={confirmWindow}
                       >
                         {" "}
@@ -134,7 +128,7 @@ export default function RegisteredDispatchCenterPage() {
               })}
             </ul>
           ) : (
-            <h1>Sorry, we could not find any registered drivers </h1>
+            <h1>Sorry, we could not find any routes </h1>
           )}
         </div>
       </div>

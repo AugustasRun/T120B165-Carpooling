@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = "https://localhost:7004/api";
 
 class routesService {
-  getDrivers() {
+  getRoutes() {
     var config = {
       method: "get",
       url: API_URL + "/routes",
@@ -19,10 +19,10 @@ class routesService {
         console.log(error);
       });
   }
-  getDriver(animalId) {
+  getRoute(routeId) {
     var config = {
       method: "get",
-      url: API_URL + "/routes/" + animalId,
+      url: API_URL + "/routes/" + routeId,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -36,7 +36,7 @@ class routesService {
         console.log(error);
       });
   }
-  updateAnimal(from, to,time,price,routeId) {
+  updateRoute(from, to,time,price,routeId) {
     var user = JSON.parse(localStorage.getItem("user"));
     let userName =
       user["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
@@ -63,7 +63,7 @@ class routesService {
         return error;
       });
   }
-  createAnimal(from, to,time,price) {
+  createRoute(from, to,time,price) {
     var user = JSON.parse(localStorage.getItem("user"));
     let userName =
       user["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
@@ -92,10 +92,10 @@ class routesService {
         return error;
       });
   }
-  deleteAnimal(animalId) {
+  deleteRoute(routeId) {
     var config = {
       method: "delete",
-      url: API_URL + "/routes/" + animalId,
+      url: API_URL + "/routes/" + routeId,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/routesService";
+import routesServices from "../../services/routesService";
 import { useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -21,7 +21,7 @@ export default function CreateDriverPage() {
     event.preventDefault();
     
       if (from.length >= 3 && to.length >= 3) {
-        animalService.createAnimal(from, to,time,price).then((response) => {
+        routesServices.createRoute(from, to,time,price).then((response) => {
           setError("");
           navigate("/admin/routes");
         });
@@ -43,7 +43,7 @@ export default function CreateDriverPage() {
             >
               Back
             </Button>
-            <h2>Register driver</h2>
+            <h2>Register route</h2>
           </div>
           <div className="pages-container-info-form">
             <Form>
