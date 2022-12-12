@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/driversService";
+import driversService from "../../services/driversService";
 import { useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -14,14 +14,14 @@ export default function EditDriverPage() {
   const [startedDriving, setStartedDriving] = useState("");
   const [startedWorking, setStartedWorking] = useState("");
   useEffect(() => {
-    getAnimal();
+    getDriver();
   }, []);
-  async function getAnimal() {
-    var animal = await animalService.getDriver(location.state.animalId);
-    setFirstName(animal.firstName);
-    setLastName(animal.lastName);
-    setStartedDriving(animal.startedDriving);
-    setStartedWorking(animal.startedWorking);
+  async function getDriver() {
+    var driver = await driversService.getDriver(location.state.driverId);
+    setFirstName(driver.firstName);
+    setLastName(driver.lastName);
+    setStartedDriving(driver.startedDriving);
+    setStartedWorking(driver.startedWorking);
   }
   const handleNavigate = () => {
     navigate("/admin/drivers");
@@ -30,8 +30,8 @@ export default function EditDriverPage() {
     event.preventDefault();
     
       if (firstName.length >= 3 && lastName.length >= 3) {
-        animalService
-          .updateAnimal(firstName, lastName,startedDriving,startedWorking,location.state.animalId)
+        driversService
+          .updateDriver(firstName, lastName,startedDriving,startedWorking,location.state.driverId)
           .then((response) => {
             setError("");
             navigate("/admin/drivers");
@@ -54,7 +54,7 @@ export default function EditDriverPage() {
             >
               Back
             </Button>
-            <h2>Edit animal</h2>
+            <h2>Edit Driver</h2>
           </div>
           <div className="pages-container-info-form">
           <Form>

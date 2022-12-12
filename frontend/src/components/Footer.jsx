@@ -9,11 +9,11 @@ function Footer() {
         <br />
         <a
           target="_blank"
-          href="https://github.com/AugustasRun/T120B165-Carpooling"
+          href="https://www.linkedin.com/in/augustinas-labutis-0b0b64194/"
           className="footer-info-link"
           rel="noreferrer"
         >
-          Github <i className="fab fa-github"></i>
+          Linkedin <i class="fa-brands fa-linkedin"></i>
         </a>
       </section>
     </div>

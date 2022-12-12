@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/driversService";
+import driversService from "../../services/driversService";
 import { useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -21,7 +21,7 @@ export default function CreateDriverPage() {
     event.preventDefault();
     
       if (firstName.length >= 3 && lastName.length >= 3) {
-        animalService.createAnimal(firstName, lastName,startedDriving,startedWorking).then((response) => {
+        driversService.createDriver(firstName, lastName,startedDriving,startedWorking).then((response) => {
           setError("");
           navigate("/admin/drivers");
         });

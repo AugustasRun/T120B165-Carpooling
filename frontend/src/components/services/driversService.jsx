@@ -19,10 +19,10 @@ class driversService {
         console.log(error);
       });
   }
-  getDriver(animalId) {
+  getDriver(driverId) {
     var config = {
       method: "get",
-      url: API_URL + "/drivers/" + animalId,
+      url: API_URL + "/drivers/" + driverId,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -36,7 +36,7 @@ class driversService {
         console.log(error);
       });
   }
-  updateAnimal(firstName, lastName,startedDriving,startedWorking,driverId) {
+  updateDriver(firstName, lastName,startedDriving,startedWorking,driverId) {
     var user = JSON.parse(localStorage.getItem("user"));
     let userName =
       user["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
@@ -64,7 +64,7 @@ class driversService {
         return error;
       });
   }
-  createAnimal(firstName, lastName,startedDriving,startedWorking) {
+  createDriver(firstName, lastName,startedDriving,startedWorking) {
     var user = JSON.parse(localStorage.getItem("user"));
     let userName =
       user["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"];
@@ -93,10 +93,10 @@ class driversService {
         return error;
       });
   }
-  deleteAnimal(animalId) {
+  deleteDriver(driverId) {
     var config = {
       method: "delete",
-      url: API_URL + "/drivers/" + animalId,
+      url: API_URL + "/drivers/" + driverId,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

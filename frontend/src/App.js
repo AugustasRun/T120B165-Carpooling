@@ -13,9 +13,9 @@ import {
   UserPage,
   SignUpPage,
   LoginPage,
-  RegisteredDispatchCenterPage,
-  RegisteredAnimalsEditPage,
-  RegisteredAnimalsCreatePage,
+  AllDispatchCenterPage,
+  DispatchEditPage,
+  DispatchCreatePage,
   AllDriversPage,
   CreateDriverPage,
   EditDriverPage,
@@ -46,7 +46,7 @@ function App() {
               element={
                 <ProtectedRoutes
                   requiredRole={"User"}
-                  page={<RegisteredDispatchCenterPage />}
+                  page={<AllDispatchCenterPage />}
                 />
               }
             />
@@ -55,7 +55,7 @@ function App() {
               element={
                 <ProtectedRoutes
                   requiredRole={"User"}
-                  page={<RegisteredAnimalsEditPage />}
+                  page={<DispatchEditPage />}
                 />
               }
             />
@@ -64,7 +64,7 @@ function App() {
               element={
                 <ProtectedRoutes
                   requiredRole={"User"}
-                  page={<RegisteredAnimalsCreatePage />}
+                  page={<DispatchCreatePage />}
                 />
               }
             />

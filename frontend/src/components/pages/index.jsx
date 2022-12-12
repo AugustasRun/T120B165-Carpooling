@@ -3,9 +3,9 @@ import AdminPage from "./AdminPage";
 import UserPage from "./UserPage";
 import SignUpPage from "./SignUpPage";
 import LoginPage from "./LoginPage";
-import RegisteredDispatchCenterPage from "./user/RegisteredDispatchCenterPage";
-import RegisteredAnimalsEditPage from "./user/RegisteredAnimalsEditPage";
-import RegisteredAnimalsCreatePage from "./user/RegisteredAnimalsCreatePage";
+import AllDispatchCenterPage from "./user/AllDispatchCenterPage";
+import DispatchEditPage from "./user/DispatchEditPage";
+import DispatchCreatePage from "./user/DispatchCreatePage";
 import AllDriversPage from "./admin/AllDriversPage";
 import CreateDriverPage from "./admin/CreateDriverPage";
 import EditDriverPage from "./admin/EditDriverPage";
@@ -18,9 +18,9 @@ export {
   UserPage,
   SignUpPage,
   LoginPage,
-  RegisteredDispatchCenterPage,
-  RegisteredAnimalsEditPage,
-  RegisteredAnimalsCreatePage,
+  AllDispatchCenterPage,
+  DispatchEditPage,
+  DispatchCreatePage,
   AllDriversPage,
   CreateDriverPage,
   EditDriverPage,

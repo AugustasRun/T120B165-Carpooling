@@ -4,7 +4,7 @@ import animalService from "../../services/animalServices";
 import { useNavigate } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 
-export default function RegisteredDispatchCenterPage() {
+export default function AllDispatchCenterPage() {
   const [animals, setAnimals] = useState([]);
   const [user, setUser] = useState();
   const [update, setUpdate] = useState();
@@ -53,13 +53,6 @@ export default function RegisteredDispatchCenterPage() {
     await animalService.deleteAnimal(event.target.value);
     setUpdate(true);
   };
-  const handleVisits = async (event) => {
-    event.preventDefault();
-    navigate("visits", {
-      state: { animalId: event.target.value },
-    });
-  };
-
   return (
     <>
       <div className="pages-container">

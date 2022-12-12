@@ -25,45 +25,30 @@ export default function InfoModal() {
   return (
     <div>
       <Button onClick={handleOpen} className="modal-button">
-        ABOUT REGISTERED USERS
+        About the system
       </Button>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            INFORMATION
+            Why us?
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            <b>Registered user</b>
+            <b>Register your dispatch center</b>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            Can register, edit and delete an animal
+            When you create an account with us you can register dispatch center and register drivers.
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            Check animal visit history
+            <b>Drivers</b>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            Check visit procedure history
+            Drivers can create routes which they took and track their worklog
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            <b>Employee</b>
+            <b>Administratoros</b>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            View all animals
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            Check animal visit history and add a visit
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            Check visit procedure history and add a procedure
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            <b>Administrator</b>
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            Manage registered users
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 1 }}>
-            Do everything that user and employee can
+            If any problem occurs feel free to contact us and we will fix them for you
           </Typography>
         </Box>
       </Modal>

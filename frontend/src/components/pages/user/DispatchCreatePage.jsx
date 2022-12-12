@@ -5,20 +5,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-export default function RegisteredAnimalsEditPage() {
+export default function DispatchCreatePage() {
   const location = useLocation();
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
-  useEffect(() => {
-    getAnimal();
-  }, []);
-  async function getAnimal() {
-    var animal = await animalService.getAnimal(location.state.animalId);
-    setName(animal.name);
-    setCity(animal.city);
-  }
   const handleNavigate = () => {
     navigate("/user/dispatchCenters");
   };
@@ -26,12 +18,10 @@ export default function RegisteredAnimalsEditPage() {
     event.preventDefault();
     
       if (name.length >= 3 && city.length >= 3) {
-        animalService
-          .updateAnimal(name, city, location.state.animalId)
-          .then((response) => {
-            setError("");
-            navigate("/user/dispatchCenters");
-          });
+        animalService.createAnimal(name, city).then((response) => {
+          setError("");
+          navigate("/user/dispatchCenters");
+        });
       } else {
         setError("Write atleast 3 letters!");
       }
@@ -50,7 +40,7 @@ export default function RegisteredAnimalsEditPage() {
             >
               Back
             </Button>
-            <h2>Edit animal</h2>
+            <h2>Register dispatch center</h2>
           </div>
           <div className="pages-container-info-form">
             <Form>

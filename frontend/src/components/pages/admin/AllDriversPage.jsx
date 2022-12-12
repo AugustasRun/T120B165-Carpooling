@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "../registeredPages.scss";
-import animalService from "../../services/driversService";
+import driversService from "../../services/driversService";
 import { useNavigate } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 
 export default function AllDriversPage() {
-  const [animals, setAnimals] = useState([]);
+  const [drivers, setDrivers] = useState([]);
   const [user, setUser] = useState();
   const [update, setUpdate] = useState();
   const navigate = useNavigate();
   useEffect(() => {
-    getAnimals();
+    getDrivers();
     return () => {
-      getAnimals();
+      getDrivers();
       setUpdate(false);
     };
   }, [update]);
-  async function getAnimals() {
-    var animals = await animalService.getDrivers();
+  async function getDrivers() {
+    var drivers = await driversService.getDrivers();
     const localUser = JSON.parse(localStorage.getItem("user"));
     setUser(localUser);
     
-    setAnimals(animals);
+    setDrivers(drivers);
   }
   const handleEdit = async (event) => {
     event.preventDefault();
     navigate("edit", {
-      state: { animalId: event.target.value },
+      state: { driverId: event.target.value },
     });
   };
   const handleCreate = async (event) => {
@@ -50,16 +50,9 @@ export default function AllDriversPage() {
   };
   const handleDelete = async (event) => {
     event.preventDefault();
-    await animalService.deleteAnimal(event.target.value);
-    setUpdate(true);
+    await driversService.deleteDriver(event.target.value);
+    setDrivers(true);
   };
-  const handleVisits = async (event) => {
-    event.preventDefault();
-    navigate("visits", {
-      state: { animalId: event.target.value },
-    });
-  };
-
   return (
     <>
       <div className="pages-container">
@@ -71,7 +64,7 @@ export default function AllDriversPage() {
               Register new Driver
             </button>
           </div>
-          {animals.length !== 0 ? (
+          {drivers.length !== 0 ? (
             <ul className="responsive-table">
               <li className="table-header">
                 <div className="col col-1">First name</div>
@@ -80,49 +73,49 @@ export default function AllDriversPage() {
                 <div className="col col-4">Started working</div>
                 <div className="col col-5">Options</div>
               </li>
-              {animals.map((animal) => {
+              {drivers.map((driver) => {
                 return (
-                  <li className="table-row" key={animal.id}>
+                  <li className="table-row" key={driver.id}>
                     <div
                       className="col col-1"
                       data-label="Name"
-                      data-key={animal.firstName}
+                      data-key={driver.firstName}
                     >
-                      {animal.firstName}
+                      {driver.firstName}
                     </div>
                     <div
                       className="col col-2"
                       data-label="C"
-                      data-key={animal.lastName}
+                      data-key={driver.lastName}
                     >
-                      {animal.lastName}
+                      {driver.lastName}
                     </div>
                     <div
                       className="col col-3"
                       data-label="C"
-                      data-key={animal.startedDriving}
+                      data-key={driver.startedDriving}
                     >
-                      {animal.startedDriving}
+                      {driver.startedDriving}
                     </div>
                     <div
                       className="col col-4"
                       data-label="C"
-                      data-key={animal.startedWorking}
+                      data-key={driver.startedWorking}
                     >
-                      {animal.startedWorking}
+                      {driver.startedWorking}
                     </div>
                     <div className="col col-5" data-label="Options">
                       <button
                         className="button-edit"
                         onClick={handleEdit}
-                        value={animal.id}
+                        value={driver.id}
                       >
                         {" "}
                         Edit
                       </button>
                       <button
                         className="button-delete"
-                        value={animal.id}
+                        value={driver.id}
                         onClick={confirmWindow}
                       >
                         {" "}
