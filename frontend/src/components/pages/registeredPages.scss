@@ -1,0 +1,347 @@
+.pages-container {
+  display: flex;
+  align-items: center;
+  max-width: 90%;
+  margin: 0 auto;
+  background: white;
+}
+.pages-container-info {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  min-height: 700px;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+.pages-container-info-header {
+  padding-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+.pages-container-info-form {
+  line-height: 40px;
+  padding-bottom: 40px;
+  margin-left: 30%;
+  margin-right: 30%;
+  background: rgb(242, 240, 240);
+  border-radius: 10px;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.3);
+}
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+  small {
+    font-size: 0.5em;
+  }
+}
+
+.responsive-table {
+  li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  .table-header {
+    background-color: #95a5a6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  }
+  .col-1 {
+    flex-basis: 10%;
+  }
+  .col-2 {
+    flex-basis: 10%;
+  }
+  .col-3 {
+    flex-basis: 10%;
+  }
+  .col-4 {
+    flex-basis: 20%;
+  }
+  .col-5 {
+    flex-basis: 20%;
+  }
+  .col-1-visit {
+    flex-basis: 50%;
+  }
+  .col-2-visit {
+    flex-basis: 10%;
+  }
+  .col-3-visit {
+    flex-basis: 20%;
+  }
+  .col-1-visit-user {
+    flex-basis: 50%;
+  }
+  .col-2-visit-user {
+    flex-basis: 50%;
+  }
+  .col-1-users {
+    flex-basis: 20%;
+  }
+  .col-2-users {
+    flex-basis: 30%;
+  }
+  .col-3-users {
+    flex-basis: 30%;
+  }
+  .col-4-users {
+    flex-basis: 30%;
+  }
+
+  @media all and (max-width: 960px) {
+    .button-visits {
+      font-size: 15px;
+    }
+    .button-new {
+      font-size: 15px;
+    }
+    .table-header {
+      display: none;
+    }
+    .table-row {
+    }
+    li {
+      display: block;
+    }
+    .col {
+      flex-basis: 100%;
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6c7a89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+  }
+}
+
+.button-new {
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+  margin-left: 30px;
+  margin-right: 25px;
+}
+
+.button-new:hover {
+  background-color: #2c974b;
+}
+.button-edit {
+  background-color: orange;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+  margin-left: 30px;
+}
+
+.button-edit:hover {
+  background-color: darkorange;
+}
+.button-delete {
+  background-color: red;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+  margin-left: 30px;
+}
+
+.button-delete:hover {
+  background-color: darkred;
+}
+.button-visits {
+  background-color: rgb(42, 39, 39);
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+  margin-left: 30px;
+}
+
+.button-visits:hover {
+  background-color: rgb(68, 68, 72);
+}
+.button-confirm {
+  background-color: rgb(42, 39, 39);
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+}
+
+.button-confirm:hover {
+  background-color: rgb(68, 68, 72);
+}
+
+.button-back {
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  height: 45px;
+  margin-right: 30px;
+}
+
+.button-back:hover {
+  background-color: #2c974b;
+}
+body.react-confirm-alert-body-element {
+  overflow: hidden;
+}
+
+.react-confirm-alert-blur {
+  filter: url(#gaussian-blur);
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.react-confirm-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.9);
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  opacity: 0;
+  -webkit-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+  -moz-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+  -o-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+  animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+}
+
+.react-confirm-alert-body {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 400px;
+  padding: 30px;
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);
+  color: #666;
+}
+
+.react-confirm-alert-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.react-confirm-alert-body > h1 {
+  margin-top: 0;
+}
+
+.react-confirm-alert-body > h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.react-confirm-alert-button-group {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.react-confirm-alert-button-group > button {
+  outline: none;
+  background: #333;
+  border: none;
+  display: inline-block;
+  padding: 6px 18px;
+  color: #eee;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+@-webkit-keyframes react-confirm-alert-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes react-confirm-alert-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes react-confirm-alert-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes react-confirm-alert-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

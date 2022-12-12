@@ -1,0 +1,51 @@
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  padding-bottom: 200px;
+  padding-top: 100px;
+  background: url("/src/images/homebackground.jpg");
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 50px;
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color: rgba(108, 122, 137, 0.7);
+  border-radius: 10px;
+  color: white;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+.form-label {
+  justify-content: center;
+  display: flex;
+}
+.error-message {
+  color: red;
+  font-size: 20px;
+}
+.success-message {
+  color: lightgreen;
+  font-size: 20px;
+}
+.form-help,
+.form-help:visited {
+  justify-content: center;
+  display: flex;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+}
+.form-help:hover {
+  color: black;
+}
