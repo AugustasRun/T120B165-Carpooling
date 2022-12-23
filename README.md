@@ -693,7 +693,7 @@ Paspaudus „About System“ mygtuką, atidaromas šis modalinis langas, kuriame
 
 ## Tinklapio pritaikymas mobiliems įrenginiams
 ![image](https://user-images.githubusercontent.com/53519808/209310317-b5bcf5d8-0a0b-4455-a352-3d916bcc5f7b.png)
-![image](https://user-images.githubusercontent.com/53519808/209310351-5107eedf-cd2c-4075-b030-647d012b91e5.png)
+![image](https://user-images.githubusercontent.com/53519808/209313260-4a133649-9749-4473-9215-9201d616d310.png)
 
 Navigacijos meniu pasikeičia, jei yra tinklapis yra prieinamas iš mobilaus įrenginio
 
