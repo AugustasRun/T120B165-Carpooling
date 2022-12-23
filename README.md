@@ -623,3 +623,79 @@ Ištrina maršrutą su nurodytu id per URL, funkcija prieinama prisijungusiems n
 ```
 Tuščias body su statuso kodu 204 No content
 ```
+# Naudotojo sąsaja
+## Prisijungimo langas
+![image](https://user-images.githubusercontent.com/53519808/209308516-c5a148d4-97bb-4ae9-8a8e-dd43f73f5e68.png)
+
+Prisijungus nueinama į pagrindinį puslapį priklausomai pagal rolę, taip pat iš šio lango galima ir užsiregistruoti į sistemą
+
+## Registracijos langas
+![image](https://user-images.githubusercontent.com/53519808/209308603-29d9b495-d814-4e33-8e74-a9f0f5e2dfe3.png)
+Registracijos lange įvedus informaciją gaunamas pranešimas, jog naudotojas užregistruotas sėkmingai ir reikia laukti administratoriaus patvirtinimo
+
+## Modalinis naudingos informacijos langas
+![image](https://user-images.githubusercontent.com/53519808/209308645-34019081-b016-4adf-8185-7b56c496dab8.png)
+Paspaudus „About System“ mygtuką, atidaromas šis modalinis langas, kuriame galite matyti informaciją apie sistemą
+
+## Administratoriaus pagrindinis langas
+![image](https://user-images.githubusercontent.com/53519808/209309144-7c62266e-d5b3-4ee9-bbfa-314ead81ad66.png)
+Šiame lange administratorius gali pasirinkti ką daryti sistemoje.
+
+## Visų naudotojų langas
+![image](https://user-images.githubusercontent.com/53519808/209309070-c77b9b12-122b-480b-b9a8-154579c54408.png)
+
+Šiame lange naudotojas gali pasirinkti ką daryti sistemoje.
+
+## Dispečiarinės langas
+![image](https://user-images.githubusercontent.com/53519808/209309253-e6399b9a-9f77-44f2-8db1-a4071691805b.png)
+
+Šiame lange naudotojas gali peržiūrėti visas dispiačiarines, pasirinkti sukurti naują, ištrinti arba redaguoti dispčiarinę
+
+## Dispiačiarinės redagavimo langas
+![image](https://user-images.githubusercontent.com/53519808/209309467-2ea3b11d-2274-4475-a4f6-36699c98a6cc.png)
+Šiame lange naudotojas gali pakeisti dispiačiarinęs duomenis, baigus redaguoti jis grįžta atgal į visų dispiačiarinių sąrašą
+
+## Naujos dispiačiarinęs pridėjimo langas
+![image](https://user-images.githubusercontent.com/53519808/209309376-9111635b-00a9-4d5a-b5fb-ad6849a8a136.png)
+Šiame lange galime įvesti informaciją naujai dispiačiarinei pridėti
+
+## Dispiačiarinės trynimas
+![image](https://user-images.githubusercontent.com/53519808/209309643-f843563c-15b0-4403-80e4-735aabbbcf3a.png)
+Šiame pop up naudotojas gali ištrinti dispiačiarinę
+
+
+## Vairuotojų langas
+![image](https://user-images.githubusercontent.com/53519808/209309946-1b44e0f9-2a30-403c-9777-4f84a8b2fca6.png)
+
+Šiame lange naudotojas gali peržiūrėti visus vairuotojus, pasirinkti sukurti naują, ištrinti arba redaguoti vairuotoją
+
+## Vairuotojų redagavimo langas
+![image](https://user-images.githubusercontent.com/53519808/209310028-c37d2157-b23a-4185-83d5-d973867d1171.png)
+Šiame lange naudotojas gali pakeisti vairuotojo duomenis, baigus redaguoti jis grįžta atgal į visų vairuotojų sąrašą
+
+## Naujo vairuotojo pridėjimo langas
+![image](https://user-images.githubusercontent.com/53519808/209309980-d1bb23a4-83e9-4453-a83e-41c2e3e597d8.png)
+Šiame lange galime įvesti informaciją naujai vairuotoją pridėti
+
+## Maršrutų langas
+![image](https://user-images.githubusercontent.com/53519808/209310201-b278f5fe-a2d8-4b97-aff1-e6230edc0097.png)
+Šiame lange naudotojas gali peržiūrėti visus maršrutus, pasirinkti sukurti naują, ištrinti arba redaguoti maršrutą
+
+## Maršrutų redagavimo langas
+![image](https://user-images.githubusercontent.com/53519808/209310253-9a72a239-8df8-4469-abb4-00a392e5181a.png)
+Šiame lange naudotojas gali pakeisti maršruto duomenis, baigus redaguoti jis grįžta atgal į visų maršrutų sąrašą
+
+## Naujo maršruto pridėjimo langas
+![image](https://user-images.githubusercontent.com/53519808/209310232-87742778-ec39-41cf-87c7-f8e2894340c7.png)
+Šiame lange galime įvesti informaciją naujai maršrutą pridėti
+
+
+
+## Tinklapio pritaikymas mobiliems įrenginiams
+![image](https://user-images.githubusercontent.com/53519808/209310317-b5bcf5d8-0a0b-4455-a352-3d916bcc5f7b.png)
+![image](https://user-images.githubusercontent.com/53519808/209310351-5107eedf-cd2c-4075-b030-647d012b91e5.png)
+
+Navigacijos meniu pasikeičia, jei yra tinklapis yra prieinamas iš mobilaus įrenginio
+
+# Išvados
+Šiame modulyje pavyko realizuoti dispiačerinės valdymo sistemą, buvo panaudota .NET karkasas ir react fron end technologijos. Tai pat visas sprendimas buvo patalpintas debesyse naudojant azure ir azure duomenų bazę. Pagrindinė kliūtis buvo front end technologijos, nes su jomis teko mažiau susidurti nei su .NET karkasu
